@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueFromScratchUsingArray"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueWithTwoStacks", "QueueWithTwoStacks\QueueWithTwoStacks.csproj", "{A8B6D0FE-011B-48EC-A445-12F2F1F271A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriorityQueueFromScratch", "PriorityQueue\PriorityQueueFromScratch.csproj", "{17BD4CB3-B046-4C0C-804F-65CB369CE16A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A8B6D0FE-011B-48EC-A445-12F2F1F271A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8B6D0FE-011B-48EC-A445-12F2F1F271A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8B6D0FE-011B-48EC-A445-12F2F1F271A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17BD4CB3-B046-4C0C-804F-65CB369CE16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BD4CB3-B046-4C0C-804F-65CB369CE16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BD4CB3-B046-4C0C-804F-65CB369CE16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BD4CB3-B046-4C0C-804F-65CB369CE16A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
