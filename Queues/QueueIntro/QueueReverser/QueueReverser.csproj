@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8676D4DB-D411-4D1D-B173-1A5D04173A8E}</ProjectGuid>
+    <ProjectGuid>{5FBD7D80-0D88-40EA-97CB-A792BE84841E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StackFromScratchUsingArray</RootNamespace>
-    <AssemblyName>StackFromScratchUsingArray</AssemblyName>
+    <RootNamespace>QueueReverser</RootNamespace>
+    <AssemblyName>QueueReverser</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MinStack.cs" />
-    <Compile Include="MinStack2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stack.cs" />
-    <Compile Include="TwoStacks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

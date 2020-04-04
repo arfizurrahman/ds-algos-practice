@@ -11,10 +11,10 @@ namespace QueueIntro
         static void Main(string[] args)
         {
             Queue<int> queue = new Queue<int>();
-            queue.Enqueue(12);
-            queue.Enqueue(20);
-            queue.Enqueue(40);
-            queue.Enqueue(50);
+            //queue.Enqueue(12);
+            //queue.Enqueue(20);
+            //queue.Enqueue(40);
+            //queue.Enqueue(50);
             Reverse(queue);
             Console.ReadKey();
         }
