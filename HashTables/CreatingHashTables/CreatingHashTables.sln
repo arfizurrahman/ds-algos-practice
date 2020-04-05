@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashFunctions", "HashFuncti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingHashTableFromScratch", "BuildingHashTableFromScratch\BuildingHashTableFromScratch.csproj", "{1EDE9BE0-CD27-4C58-B106-E2AC0930B908}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTableExercises", "HashTableExercises\HashTableExercises.csproj", "{A36EEB55-B397-434E-A676-B2F52B2181F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{1EDE9BE0-CD27-4C58-B106-E2AC0930B908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EDE9BE0-CD27-4C58-B106-E2AC0930B908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EDE9BE0-CD27-4C58-B106-E2AC0930B908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36EEB55-B397-434E-A676-B2F52B2181F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36EEB55-B397-434E-A676-B2F52B2181F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36EEB55-B397-434E-A676-B2F52B2181F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36EEB55-B397-434E-A676-B2F52B2181F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

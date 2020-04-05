@@ -10,14 +10,21 @@ namespace BuildingHashTableFromScratch
     {
         static void Main(string[] args)
         {
-            HashTable hashTable = new HashTable();
-            hashTable.Add(6, "Arfiz");
-            hashTable.Add(8, "Fahmida");
-            hashTable.Add(11, "Ashfaq");
-            hashTable.Add(11, "Farez");
-            hashTable.Remove(9);
+            //    HashTable hashTable = new HashTable();
+            //    hashTable.Add(6, "Arfiz");
+            //    hashTable.Add(8, "Fahmida");
+            //    hashTable.Add(11, "Ashfaq");
+            //    hashTable.Add(11, "Farez");
+            //    hashTable.Remove(9);
 
-            Console.WriteLine(hashTable.GetValue(3));
+            HashMap map = new HashMap();
+            map.Add(6,"A");
+            map.Add(8,"B");
+            map.Add(11,"C");
+            map.Add(12,"D");
+            map.Add(13,"E");
+            map.Add(13,"F");
+            Console.WriteLine();
             Console.ReadKey();
         }
     }
