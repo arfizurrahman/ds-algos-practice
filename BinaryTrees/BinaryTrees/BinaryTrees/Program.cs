@@ -18,7 +18,23 @@ namespace BinaryTrees
             tree.Insert(10);
             tree.Insert(6);
             tree.Insert(8);
-            Console.WriteLine(tree.Find(7));
+
+            Tree tree2 = new Tree();
+            tree2.Insert(7);
+            tree2.Insert(4);
+            tree2.Insert(9);
+            tree2.Insert(1);
+            tree2.Insert(10);
+            tree2.Insert(6);
+            //tree2.Insert(8);
+
+            Console.WriteLine(tree.Equals(tree2));
+            //tree.TraversePreOrder();
+            //Console.WriteLine("In-Order");
+            //tree.TraverseInOrder();
+            //Console.WriteLine("Post-Order");
+            //tree.TraversePostOrder();
+            //Console.WriteLine(tree.Find(7));
             Console.ReadLine();
         }
     }
