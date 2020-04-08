@@ -83,10 +83,120 @@ namespace BinaryTrees
             return false;
         }
 
+        public List<int> GetAncestors(int value)
+        {
+            List<int> list = new List<int>();
+            GetAncestors(root, value, list);
+            return list;
+        }
+
+        private bool GetAncestors(Node root, int value, List<int> list)
+        {
+            if (root == null)
+                return false;
+
+            if (root.value == value)
+                return true;
+
+
+            if (GetAncestors(root.leftChild, value, list) ||
+                GetAncestors(root.rightChild, value, list))
+            {
+                list.Add(root.value);
+                return true;
+            }
+
+            return false;
+        }
+        private Node GetNode(int value)
+        {
+            if (root == null)
+                throw new InvalidOperationException();
+
+            var current = root;
+            while (current != null)
+            {
+                //if (current.value == value) return true;
+                if (value > current.value)
+                    current = current.rightChild;
+                else if (value < current.value)
+                    current = current.leftChild;
+                else
+                    return current;
+            }
+
+            return null;
+        }
+
+        public bool Contains(int value)
+        {
+            return Contains(root, value);
+        }
+
+        private bool Contains(Node root, int value)
+        {
+            if (root == null)
+                return false;
+            
+            if (root.value == value)
+                return true;
+
+            return Contains(root.leftChild, value) || Contains(root.rightChild, value);
+        }
+
+        public bool AreSibling(int value1, int value2)
+        {
+            return AreSibling(root, value1, value2);
+        }
+
+        private bool AreSibling(Node root, int value1, int value2)
+        {
+            if (root == null)
+                return false;
+
+            var areSibling = false;
+
+            if (root.leftChild != null && root.rightChild != null)
+            {
+                areSibling = (root.leftChild.value == value1 && root.rightChild.value == value2)
+                             || (root.rightChild.value == value1 && root.leftChild.value == value2);
+            }
+
+            return areSibling || 
+                   AreSibling(root.leftChild, value1, value2) ||
+                   AreSibling(root.rightChild, value1, value2);
+        }
+
+        //private bool AreSibling(Node root, int value1, int value2)
+        //{
+        //    if (IsLeaf(root))
+        //        return false;
+
+        //    if ((root.leftChild.value == value1 && root.rightChild.value == value2)
+        //        || (root.rightChild.value == value1 && root.leftChild.value == value2))
+        //    {
+        //        return true;
+        //    }
+
+        //    return AreSibling(root.leftChild, value1, value2) || AreSibling(root.rightChild, value1, value2);
+        //}
+
+        public void TraverseLevelOrder()
+        {
+            for (int i = 0; i <= Height(); i++)
+            {
+                foreach (var value in GetNodesAtDistance(i))
+                {
+                    Console.WriteLine(value);
+                }
+            }
+        }
+
         public void TraversePreOrder()
         {
             TraversePreOrder(root);
         }
+
         private void TraversePreOrder(Node root)
         {
             if (root == null)
@@ -141,23 +251,6 @@ namespace BinaryTrees
             return 1 + Math.Max(Height(root.leftChild), Height(root.rightChild));
         }
 
-        // O(log n)
-        public int Minimum()
-        {
-            if (root == null)
-                throw new InvalidOperationException();
-
-            var current = root;
-            var last = current;
-            while (current != null)
-            {
-                last = current;
-                current = current.leftChild;
-            }
-
-            return last.value;
-        }
-
         public bool Equals(Tree other)
         {
             if (other == null)
@@ -179,11 +272,76 @@ namespace BinaryTrees
             return false;
         }
 
+        public void SwapRoot()
+        {
+            var temp = root.leftChild;
+            root.leftChild = root.rightChild;
+            root.rightChild = temp;
+        }
+
+        public bool IsBinarySearchTree()
+        {
+            return IsBinarySearchTree(root, Int32.MaxValue, Int32.MinValue);
+        }
+
+        private bool IsBinarySearchTree(Node root, int max, int min)
+        {
+            if (root == null)
+                return true;
+
+            if (root.value < min || root.value > max)
+                return false;
+
+            return IsBinarySearchTree(root.leftChild, root.value - 1, min) &&
+                   IsBinarySearchTree(root.rightChild, max, root.value + 1);
+
+        }
+
+        public List<int> GetNodesAtDistance(int distance)
+        {
+            List<int> list = new List<int>();
+            GetNodesAtDistance(root, distance, list);
+            return list;
+        }
+
+        private void GetNodesAtDistance(Node root, int distance, List<int> list)
+        {
+            if (root == null)
+                return;
+
+            if (distance == 0)
+            {
+                list.Add(root.value);
+                return;
+            }
+
+            GetNodesAtDistance(root.leftChild, distance - 1, list);
+            GetNodesAtDistance(root.rightChild, distance - 1, list);
+        }
+
         //O(n)
         private bool IsLeaf(Node node)
         {
-            return root.leftChild == null && root.rightChild == null;
+            return node.leftChild == null && node.rightChild == null;
         }
+
+        // O(log n)
+        public int Minimum()
+        {
+            if (root == null)
+                throw new InvalidOperationException();
+
+            var current = root;
+            var last = current;
+            while (current != null)
+            {
+                last = current;
+                current = current.leftChild;
+            }
+
+            return last.value;
+        }
+
         private int Minimum(Node root)
         {
             if (root == null)
@@ -196,6 +354,72 @@ namespace BinaryTrees
             var right = Minimum(root.rightChild);
 
             return Math.Min(Math.Min(left, right), root.value);
+        }
+
+        public int Maximum()
+        {
+            if (root == null)
+                throw new InvalidOperationException();
+
+            return Maximum(root);
+            //var current = root;
+            //var last = current;
+            //while (current != null)
+            //{
+            //    last = current;
+            //    current = current.rightChild;
+            //}
+
+            //return last.value;
+        }
+
+        private int Maximum(Node root)
+        {
+            if (root.rightChild == null)
+                return root.value;
+
+            return Maximum(root.rightChild);
+        }
+
+        //public int Size()
+        //{
+        //    var count = 0;
+        //    for (int i = 0; i <= Height(); i++)
+        //    {
+        //        count += GetNodesAtDistance(i).Count;
+        //    }
+
+        //    return count;
+        //}
+
+        public int Size()
+        {
+            return Size(root);
+        }
+        private int Size(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            if (IsLeaf(root))
+                return 1;
+
+            return 1 + Size(root.leftChild) + Size(root.rightChild);
+        }
+
+        public int CountLeaves()
+        {
+            return CountLeaves(root);
+        }
+        private int CountLeaves(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            if (IsLeaf(root))
+                return 1;
+
+            return CountLeaves(root.leftChild) + CountLeaves(root.rightChild);
         }
     }
 }

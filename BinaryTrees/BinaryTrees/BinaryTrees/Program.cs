@@ -28,7 +28,12 @@ namespace BinaryTrees
             tree2.Insert(6);
             //tree2.Insert(8);
 
-            Console.WriteLine(tree.Equals(tree2));
+            //tree.SwapRoot();
+            foreach (var i in tree.GetAncestors(1))
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine();
             //tree.TraversePreOrder();
             //Console.WriteLine("In-Order");
             //tree.TraverseInOrder();

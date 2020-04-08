@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTrees", "BinaryTrees\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion\Recursion.csproj", "{140BDD87-E913-4938-A28A-0B8219697608}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTrees", "AVLTrees\AVLTrees.csproj", "{BE30EE91-2A8C-42D6-A20E-CCCEDA2DE761}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{140BDD87-E913-4938-A28A-0B8219697608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{140BDD87-E913-4938-A28A-0B8219697608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{140BDD87-E913-4938-A28A-0B8219697608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE30EE91-2A8C-42D6-A20E-CCCEDA2DE761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE30EE91-2A8C-42D6-A20E-CCCEDA2DE761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE30EE91-2A8C-42D6-A20E-CCCEDA2DE761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE30EE91-2A8C-42D6-A20E-CCCEDA2DE761}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
