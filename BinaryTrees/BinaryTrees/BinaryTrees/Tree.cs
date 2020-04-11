@@ -137,7 +137,7 @@ namespace BinaryTrees
         {
             if (root == null)
                 return false;
-            
+
             if (root.value == value)
                 return true;
 
@@ -162,7 +162,7 @@ namespace BinaryTrees
                              || (root.rightChild.value == value1 && root.leftChild.value == value2);
             }
 
-            return areSibling || 
+            return areSibling ||
                    AreSibling(root.leftChild, value1, value2) ||
                    AreSibling(root.rightChild, value1, value2);
         }
@@ -420,6 +420,28 @@ namespace BinaryTrees
                 return 1;
 
             return CountLeaves(root.leftChild) + CountLeaves(root.rightChild);
+        }
+
+        public bool IsBalanced()
+        {
+            return IsBalanced(root);
+        }
+
+        private bool IsBalanced(Node root)
+        {
+            if (root==null)
+                return true;
+
+            var balanceFactor = Height(root.leftChild) - Height(root.rightChild);
+
+            return Math.Abs(balanceFactor) <= 1 &&
+                   IsBalanced(root.leftChild) &&
+                   IsBalanced(root.rightChild);
+        }
+
+        public bool IsPerfect()
+        {
+            return Size() == (Math.Pow(2, Height() + 1) -1);
         }
     }
 }
