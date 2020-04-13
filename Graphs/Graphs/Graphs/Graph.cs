@@ -172,6 +172,7 @@ namespace Graphs
 
             return sorted;
         }
+
         private void TopologicalSort(Node node, Stack<Node> stack, HashSet<Node> visited)
         {
             if (visited.Contains(node))
@@ -182,6 +183,45 @@ namespace Graphs
                 TopologicalSort(neighbor, stack, visited);
 
             stack.Push(node);
+        }
+
+        public bool HasCycle()
+        {
+            HashSet<Node> all = new HashSet<Node>(nodes.Values);
+            HashSet<Node> visiting = new HashSet<Node>();
+            HashSet<Node> visited = new HashSet<Node>();
+
+            while (all.Count != 0)
+            {
+                var current = all.First();
+                if (HasCycle(current, all, visiting, visited))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private bool HasCycle(Node node, HashSet<Node> all, HashSet<Node> visiting, HashSet<Node> visited)
+        {
+            all.Remove(node);
+            visiting.Add(node);
+
+            foreach (var neighbor in adjacencyList[node])
+            {
+                if (visited.Contains(neighbor))
+                    continue;
+
+                if (visiting.Contains(neighbor))
+                    return true;
+
+                if (HasCycle(neighbor, all, visiting, visited))
+                    return true;
+            }
+
+            visiting.Remove(node);
+            visited.Add(node);
+
+            return false;
         }
     }
 }
