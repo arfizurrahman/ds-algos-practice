@@ -11,14 +11,17 @@ namespace Graphs
         static void Main(string[] args)
         {
             var graph = new Graph();
+            graph.AddNode("X");
             graph.AddNode("A");
             graph.AddNode("B");
-            graph.AddNode("C");
-            graph.AddEdge("A", "B");
-            graph.AddEdge("A", "C");
-            graph.RemoveNode("B");
+            graph.AddNode("P");
+            graph.AddEdge("X", "A");
+            graph.AddEdge("X", "B");
+            graph.AddEdge("A", "P");
+            graph.AddEdge("B", "P");
+            var list = graph.TopologicalSort();
 
-            graph.Print();
+            Console.WriteLine(string.Join(", ", list));
 
             Console.ReadKey();
         }
