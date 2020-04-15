@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BubbleSort
+namespace SearchingAlgorithms
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] numbers = {8, 2, 4, 1, 3};
-            var sorter = new BubbleSort();
-            sorter.Sort(numbers);
+            int[] numbers = {1, 5, 6, 7, 8};
+            Search search = new Search();
+            Console.WriteLine(search.BinarySearchIter(numbers, 8));
 
-            Console.WriteLine(string.Join(", ", numbers));
             Console.ReadKey();
         }
-        
     }
 }
